@@ -8,6 +8,7 @@
     </x-slot>
 
     <div class="py-12">
+        <x-alert></x-alert>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
@@ -30,6 +31,9 @@
                             <th>
                                 Check-Out
                             </th>
+                            <th>
+                                Process Order
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -37,7 +41,7 @@
                             @if( count( $shoppers['active'] )  >= 1 )
                                 @foreach( $shoppers['active'] as $shopper )
                                     <tr class="text-center">
-                                        <x-shopper.listing :shopper="$shopper"/>
+                                        <x-shopper.listing :shopper="$shopper" :store="$location['store']" />
                                     </tr>
                                 @endforeach
                             @endif
